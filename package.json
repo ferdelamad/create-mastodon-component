@@ -2,9 +2,16 @@
   "name": "create-mastodon-component",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "createMastodonComponent.js",
+  "bin": {
+    "create-mastodon-component": "createMastodonComponent.js"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "change-case": "^3.1.0",
+    "commander": "^2.9.0"
   },
   "keywords": [],
   "author": "",
