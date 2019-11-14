@@ -1,6 +1,6 @@
 {
   "name": "create-mastodon-component",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "",
   "main": "createMastodonComponent.js",
   "bin": {
@@ -15,5 +15,9 @@
   },
   "keywords": [],
   "author": "Fernando De La Madrid",
-  "license": "ISC"
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ferdelamad/create-mastodon-component"
+  }
 }

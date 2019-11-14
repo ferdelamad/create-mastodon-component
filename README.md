@@ -1,21 +1,16 @@
 # create-mastodon-component
 
-## Install
-```bash
-npm i -g create-mastodon-component
-```
-
-## Example
+## Usage
 Run the following command from the root directory of **mastodon**.
 ```bash
-create-react-component table
+npx create-react-component Table
 ```
 Creates:
 ```
 Table
 ├── Table.js
+├── Table.test.js
+├── Table.stories.mdx
 ├── style.scss
 └── index.js
-└── __tests__
-        └── TableTest.js
 ```
