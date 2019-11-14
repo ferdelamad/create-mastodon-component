@@ -6,10 +6,11 @@ const program    = require('commander');
 const changeCase = require('change-case');
 
 const {
-  createStyleTemplate,
   createJsTemplate,
-  createIndexTemplate,
   createTestTemplate,
+  createIndexTemplate,
+  createStoryTemplate,
+  createStyleTemplate,
 } = require('./lib')
 
 function init(name, options) {
@@ -17,22 +18,25 @@ function init(name, options) {
 
   const dir       = path.resolve(`./src/Mastodon/${name}`);
   const stylesExt = options.styles || "scss";
-  const styles    = path.resolve(dir, `styles.${stylesExt}`)
-  const js        = path.resolve(dir, `${name}.js`);
-  const index     = path.resolve(dir, "index.js");
-  const test      = path.resolve(`${dir}/__tests__`, `${name}Test.js`)
 
-  const styleContent = createStyleTemplate(paramName);
-  const jsContent = createJsTemplate(name, paramName);
+  const js        = path.resolve(dir, `${name}.js`);
+  const test      = path.resolve(dir, `${name}.test.js`)
+  const index     = path.resolve(dir, `index.js`);
+  const story     = path.resolve(dir, `${name}.stories.mdx`)
+  const styles    = path.resolve(dir, `styles.${stylesExt}`)
+
+  const jsContent    = createJsTemplate(name, paramName);
+  const testContent  = createTestTemplate(name, paramName);
+  const storyContent = createStoryTemplate(name);
   const indexContent = createIndexTemplate(name);
-  const testContent = createTestTemplate(name, paramName);
+  const styleContent = createStyleTemplate(paramName);
 
   fs.mkdirSync(`./src/Mastodon/${name}`);
-  fs.mkdirSync(`./src/Mastodon/${name}/__tests__`);
   fs.writeSync(fs.openSync(styles, "w"), styleContent);
   fs.writeSync(fs.openSync(js, "w"), jsContent);
   fs.writeSync(fs.openSync(index, "w"), indexContent);
   fs.writeSync(fs.openSync(test, "w"), testContent);
+  fs.writeSync(fs.openSync(story, "w"), storyContent);
   console.log(`Mastodon ${name} component created`);
 }
 
